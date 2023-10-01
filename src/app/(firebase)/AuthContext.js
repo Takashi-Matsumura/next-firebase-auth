@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, createContext, useState, useEffect } from "react";
-import { auth } from "../firebase";
+import { auth } from "./config";
 import {
   signInWithPopup,
   signOut,
