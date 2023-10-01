@@ -17,7 +17,13 @@ export const AuthContextProvider = ({ children }) => {
   const login = () => {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" });
-    signInWithPopup(auth, provider);
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        setUser(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   const logout = () => {
